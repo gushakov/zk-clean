@@ -27,6 +27,7 @@
         <zk.version>9.6.0-jakarta</zk.version>
         <zkspringboot.version>3.0.0</zkspringboot.version>
         <zkspring.version>6.0.0</zkspring.version>
+        <archunit.version>0.23.1</archunit.version>
     </properties>
 
     <repositories>
@@ -70,6 +71,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit</artifactId>
+            <version>${archunit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
