@@ -1,0 +1,32 @@
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <!--
+        References:
+        ==========
+
+        1. Mozilla CSS Docs: https://developer.mozilla.org/en-US/docs/Web/CSS
+    -->
+
+    <vlayout viewModel="@id('vm') @init('com.github.zkclean.infrastructure.adapter.zk.greeting.GreetingVm')">
+
+        <label style="color: orangered;" value="@load(vm.binder.error)" visible="@load(vm.binder.isError)"/>
+
+        <space height="1em"/>
+
+        <hlayout valign="middle">
+            <label value="Welcome to the demo application. Please, submit a name."/>
+            <textbox value="@bind(vm.binder.name)"/>
+        </hlayout>
+
+        <button label="Submit" onClick="@command('greet')"/>
+
+        <space height="1em"/>
+
+        <label value="@load(vm.binder.greetingMessage)" visible="@load(not vm.binder.shoutVisible)"/>
+
+        <label style="font-variant: small-caps; font-weight: bold;" value="@load(vm.binder.greetingMessage)"
+               visible="@load(vm.binder.shoutVisible)"/>
+
+    </vlayout>
+
+</zk>
