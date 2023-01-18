@@ -19,9 +19,11 @@ public class GreetingPresenter extends AbstractZkPresenter implements GreetingPr
     @Override
     public void showGreeting(Greeting greeting) {
 
+        // actually present the greeting
         binder.setGreetingMessage(greeting.getMessage());
         binder.setShoutVisible(greeting.isShout());
 
+        // will also clear any previous errors automatically
         binder.updateView("greetingMessage", "shoutVisible");
     }
 }

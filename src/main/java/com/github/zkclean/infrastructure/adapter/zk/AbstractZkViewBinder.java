@@ -6,7 +6,7 @@ import org.zkoss.bind.annotation.DependsOn;
 
 import java.util.Arrays;
 
-public class AbstractZkBinder implements ViewBinder {
+public class AbstractZkViewBinder implements ViewBinder {
 
     @Getter
     private String error;

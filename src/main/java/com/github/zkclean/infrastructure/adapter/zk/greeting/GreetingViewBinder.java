@@ -1,10 +1,10 @@
 package com.github.zkclean.infrastructure.adapter.zk.greeting;
 
-import com.github.zkclean.infrastructure.adapter.zk.AbstractZkBinder;
+import com.github.zkclean.infrastructure.adapter.zk.AbstractZkViewBinder;
 import lombok.Getter;
 import lombok.Setter;
 
-public class GreetingViewBinder extends AbstractZkBinder {
+public class GreetingViewBinder extends AbstractZkViewBinder {
 
     @Getter
     @Setter
