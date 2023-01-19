@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 /**
  * Default implementation of {@link ViewBinder} which updates the view
- * using a call to {@link BindUtils}.
+ * using {@link BindUtils}.
  *
  * @see BindUtils#postNotifyChange(Object, String...)
  */
