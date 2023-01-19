@@ -1,6 +1,6 @@
 package com.github.zkclean.core.usecase.greeting;
 
-import com.github.zkclean.core.GeneticGreetingError;
+import com.github.zkclean.core.GenericGreetingError;
 import com.github.zkclean.core.model.greeting.Greeting;
 import com.github.zkclean.core.port.operation.GatewayOperationsOutputPort;
 import com.github.zkclean.core.port.presenter.GreetingPresenterOutputPort;
@@ -22,7 +22,7 @@ public class GreetingUseCase implements GreetingInputPort {
             // load greeting model from the gateway
             greeting = gatewayOps.load(name);
 
-        } catch (GeneticGreetingError e) {
+        } catch (GenericGreetingError e) {
             presenter.presentError(e);
             return;
         }

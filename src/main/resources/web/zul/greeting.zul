@@ -9,12 +9,13 @@
 
     <vlayout viewModel="@id('vm') @init('com.github.zkclean.infrastructure.adapter.zk.greeting.GreetingVm')">
 
-        <label style="color: orangered;" value="@load(vm.binder.error)" visible="@load(vm.binder.isError)"/>
+        <label style="color: orangered;" value="@load(vm.binder.error)" visible="@load(vm.binder.hasErrors)"/>
 
         <space height="1em"/>
 
+        <label value="Welcome to the demo application."/>
         <hlayout valign="middle">
-            <label value="Welcome to the demo application. Please, submit a name."/>
+            <label value="Please, submit a name."/>
             <textbox value="@bind(vm.binder.name)"/>
         </hlayout>
 

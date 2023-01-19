@@ -21,9 +21,13 @@ public class GreetingPresenter extends AbstractZkPresenter implements GreetingPr
 
         // actually present the greeting
         binder.setGreetingMessage(greeting.getMessage());
+        // and set the modality: shout or not
         binder.setShoutVisible(greeting.isShout());
 
-        // will also clear any previous errors automatically
+        // clear any errors
+        binder.clearErrors();
+
+        // update the view
         binder.updateView("greetingMessage", "shoutVisible");
     }
 }

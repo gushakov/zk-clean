@@ -6,36 +6,41 @@ import org.zkoss.bind.annotation.DependsOn;
 
 import java.util.Arrays;
 
+/**
+ * Default implementation of {@link ViewBinder} which updates the view
+ * using a call to {@link BindUtils}.
+ *
+ * @see BindUtils#postNotifyChange(Object, String...)
+ */
 public class AbstractZkViewBinder implements ViewBinder {
 
     @Getter
     private String error;
 
     @Override
-    public void setError(String error) {
-        this.error = error;
+    public void setError(Throwable t) {
+        this.error = t.getMessage();
     }
 
-    @Override
+    public void clearErrors() {
+        this.error = null;
+    }
+
     @DependsOn("error")
-    public boolean getIsError() {
+    public boolean getHasErrors() {
         return error != null;
     }
 
     @Override
     public void updateView(String... properties) {
-        if (Arrays.stream(properties).noneMatch("error"::equals)){
-            // clear error
-            error = null;
-            // add "error" property to the set of view properties to be updated
-            BindUtils.postNotifyChange(this, withError(properties));
+
+        if (Arrays.stream(properties).noneMatch("error"::equals)) {
+            BindUtils.postNotifyChange(this, addErrorProperty(properties));
         }
-        else {
-            BindUtils.postNotifyChange(this, properties);
-        }
+
     }
 
-    private String[] withError(String... properties){
+    private String[] addErrorProperty(String... properties) {
         String[] copy = Arrays.copyOf(properties, properties.length + 1);
         copy[properties.length] = "error";
         return copy;
