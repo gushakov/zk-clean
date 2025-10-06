@@ -10,14 +10,14 @@ import java.util.Set;
 @Service
 public class InMemoryGateway implements GatewayOperationsOutputPort {
 
-    private static final Set<Triple<String, String, Boolean>> pairs = Set.of(
+    private static final Set<Triple<String, String, Boolean>> triples = Set.of(
             Triple.of("Brad", "Hello there, %s", true),
             Triple.of("George", "How are you, %s", false),
             Triple.of("Tom", "Howdy, %s", true));
 
     @Override
     public Greeting load(String name) {
-        return pairs.stream().filter(triple -> triple.getLeft().equals(name))
+        return triples.stream().filter(triple -> triple.getLeft().equals(name))
                 .map(triple -> Greeting.builder()
                         .message(triple.getMiddle().formatted(triple.getLeft()))
                         .shout(triple.getRight())
