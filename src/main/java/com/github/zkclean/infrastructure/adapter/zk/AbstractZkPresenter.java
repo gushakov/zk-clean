@@ -2,12 +2,17 @@ package com.github.zkclean.infrastructure.adapter.zk;
 
 import com.github.zkclean.core.port.presenter.ErrorHandlingPresenterOutputPort;
 
+/**
+ * Common parent for all Presenters which use {@link ViewBinder} to present
+ * data to the view.
+ * @see #presentError(Throwable)
+ */
 public abstract class AbstractZkPresenter implements ErrorHandlingPresenterOutputPort {
 
     @Override
     public void presentError(Throwable t) {
-        binder().setError(t);
-        binder().updateView();
+        viewBinder().setError(t);
+        viewBinder().updateView();
     }
 
     /**
@@ -16,5 +21,5 @@ public abstract class AbstractZkPresenter implements ErrorHandlingPresenterOutpu
      *
      * @return {@linkplain ViewBinder} implementation
      */
-    protected abstract ViewBinder binder();
+    protected abstract ViewBinder viewBinder();
 }

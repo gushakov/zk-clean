@@ -12,7 +12,7 @@ public class GreetingPresenter extends AbstractZkPresenter implements GreetingPr
     private final GreetingViewBinder binder;
 
     @Override
-    protected ViewBinder binder() {
+    protected ViewBinder viewBinder() {
         return binder;
     }
 
